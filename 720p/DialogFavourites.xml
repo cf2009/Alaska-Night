@@ -1,0 +1,188 @@
+<!--Alaska-->
+
+<window type="dialog" id="134">
+	<defaultcontrol always="true">450</defaultcontrol>
+	<controls>
+		<control type="group">
+			<include>Animation_ZoomInZoomOut</include>
+			<animation type="Conditional" condition="ControlGroup(7000).HasFocus | ControlGroup(7001).HasFocus | Window.IsActive(106) | Window.IsActive(111)">
+				<effect type="zoom" time="600" center="640,360" start="100" end="50" tween="cubic" easing="inout" />
+			</animation>
+			<control type="fixedlist" id="450">
+				<posx>480</posx>
+				<posy>10</posy>
+				<height>710</height>
+				<width>800</width>
+				<onup>55</onup>
+				<ondown>55</ondown>
+				<onleft>7000</onleft>
+				<onright>60</onright>
+				<orientation>vertical</orientation>
+				<focusposition>7</focusposition>
+				<pagecontrol>60</pagecontrol>
+				<itemlayout width="800" height="40">
+					<control type="label">
+						<posx>15</posx>
+						<posy>0</posy>
+						<width>735</width>
+						<height>40</height>
+						<aligny>center</aligny>
+						<font>Font_ListTitleNF</font>
+						<textcolor>ListTitleNF</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+				</itemlayout>
+				<focusedlayout width="800" height="105">
+					<control type="label">
+						<posx>0</posx>
+						<posy>5</posy>
+						<width>750</width>
+						<height>90</height>
+						<aligny>center</aligny>
+						<font>Font_ListTitleBigger</font>
+						<textcolor>ListTitleF</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+				</focusedlayout>
+			</control>
+			<control type="group">
+				<visible>Skin.HasSetting(File_View_Focus_Line) + Control.IsVisible(450)</visible>
+				<posx>0</posx>
+				<posy>290</posy>
+				<include>Animation_ZoomInZoomOut</include>
+				<control type="image">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>1280</width>
+					<height>100</height>
+					<texture>common/black.png</texture>
+					<colordiffuse>11000000</colordiffuse>
+				</control>
+				<control type="image">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>1280</width>
+					<height>2</height>
+					<texture>common/line_1.png</texture>
+					<colordiffuse>55ffffff</colordiffuse>
+				</control>
+				<control type="image">
+					<posx>0</posx>
+					<posy>100</posy>
+					<width>1280</width>
+					<height>2</height>
+					<texture>common/line_1.png</texture>
+					<colordiffuse>55ffffff</colordiffuse>
+				</control>
+			</control>
+			<control type="image">
+				<include>Dimensions_Fullscreen</include>
+				<texture diffuse="list/list_mask_5.png">backdrops/background.png</texture>
+				<visible>Control.IsVisible(450)</visible>
+			</control>
+			<control type="image">
+				<include>Dimensions_Fullscreen</include>
+				<texture diffuse="list/list_mask_5.png">backdrops/backgroundcolordiffuse.png</texture>
+				<colordiffuse>backgroundColor</colordiffuse>
+				<visible>Control.IsVisible(450)</visible>
+			</control>
+			<control type="image">
+				<posx>28</posx>
+				<posy>190</posy>
+				<width>430</width>
+				<height>300</height>
+				<fadetime>400</fadetime>
+				<aspectratio align="right" aligny="center">keep</aspectratio>
+				<texture>$INFO[Container(450).ListItem.Icon]</texture>
+				<bordertexture border="8">common/thumb_border.png</bordertexture>
+				<bordersize>8</bordersize>
+				<!--Not yet working-->
+				<animation type="Focus" reversible="false">
+					<effect type="zoom" center="52,52" start="50" end="100" time="200" tween="cubic" easing="out" />
+					<effect type="fade" start="0" end="100" time="200" />
+				</animation>
+				<!--end-->
+				<animation type="Conditional" condition="Window.IsActive(2003)">
+					<effect type="zoom" center="auto" start="100" end="120" time="400" tween="cubic" easing="inout" />
+					<effect type="slide" start="0,0" end="40,-25" time="400" tween="cubic" easing="inout" />
+				</animation>
+				<include>Animation_ZoomInZoomOut</include>
+				<include>Animation_CommonFade</include>
+				<visible>Control.IsVisible(450)+Player.HasMedia</visible>
+			</control>
+			<control type="image">
+				<posx>28</posx>
+				<posy>105</posy>
+				<width>430</width>
+				<height>470</height>
+				<fadetime>400</fadetime>
+				<aspectratio align="right" aligny="center">keep</aspectratio>
+				<texture>$INFO[Container(450).ListItem.Icon]</texture>
+				<bordertexture border="8">common/thumb_border.png</bordertexture>
+				<bordersize>8</bordersize>
+				<animation type="Conditional" condition="Window.IsActive(2003)">
+					<effect type="slide" start="0,0" end="60,0" time="400" tween="cubic" easing="inout" />
+				</animation>
+				<include>Animation_ZoomInZoomOut</include>
+				<include>Animation_CommonFade</include>
+				<visible>Control.IsVisible(450)+!Player.HasMedia</visible>
+			</control>
+			<control type="scrollbar" id="60">
+				<posx>1280</posx>
+				<posy>140</posy>
+				<width>25</width>
+				<height>400</height>
+				<visible allowhiddenfocus="true">Control.IsVisible(450) + Control.HasFocus(60)</visible>
+				<texturesliderbackground border="0,14,0,14">ScrollBarV.png</texturesliderbackground>
+				<textureslidernibfocus>ScrollBarV_Nib_Focus.png</textureslidernibfocus>
+				<onleft>55</onleft>
+				<onright>7000</onright>
+				<showonepage>false</showonepage>
+				<orientation>vertical</orientation>
+				<include>Animation_ZoomInZoomOut</include>
+				<include>Animation_CommonFade</include>
+				<animation effect="slide" start="0,0" end="-50,0" time="400" tween="cubic" easing="inout" condition="Control.HasFocus(60)">Conditional</animation>
+			</control>
+		</control>
+		<include>Object_DebugGrid</include>
+		<control type="group">
+			<visible>ControlGroup(7001).HasFocus | ControlGroup(7000).HasFocus | Window.IsActive(106) | Window.IsActive(111)</visible>
+			<animation effect="fade" start="0" end="100" time="200">Visible</animation>
+			<animation effect="fade" start="100" end="0" time="400">Hidden</animation>
+			<control type="image">
+				<include>Dimensions_Fullscreen</include>
+				<texture>backdrops/background.png</texture>
+				<colordiffuse>f1FFFFFF</colordiffuse>
+			</control>
+			<control type="image">
+				<include>Dimensions_Fullscreen</include>
+				<texture>backdrops/backgroundcolordiffuse.png</texture>
+				<colordiffuse>backgroundColor</colordiffuse>
+			</control>
+		</control>
+	<!-- Heading -->
+		<control type="group">
+			<posx>30</posx>
+			<posy>30</posy>
+			<include>Animation_SlideDownFadeOut</include>
+			<control type="label">
+				<description>Favourites</description>
+				<label>1036</label>
+				<include>Global_HeadingSectionVars</include>
+				<visible>Window.IsActive(134)</visible>
+			</control>
+			<control type="label">
+<!-- LOC -->	<label>$INFO[Container(450).NumItems] ITEMS</label>
+				<include>Global_HeadingDetailVars</include>
+				<visible>Window.IsActive(134)</visible>
+			</control>
+		</control>
+		<include>Global_Time</include>
+		<include>Global_RSS</include>
+		<control type="label">
+			<include>WindowID</include>
+			<label>Favourites.xml</label>
+			<visible>Skin.HasSetting(debugmode)</visible>
+		</control>
+	</controls>
+</window>
