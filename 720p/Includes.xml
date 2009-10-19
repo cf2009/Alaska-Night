@@ -73,7 +73,7 @@
 	</include>
 	<include name="Global_ContextFilter">
 		<control type="group">
-			<visible>ControlGroup(7001).HasFocus | ControlGroup(7000).HasFocus | Window.IsActive(100) | Window.IsActive(106) | Window.IsActive(111) | Window.IsActive(134)</visible>
+			<visible>ControlGroup(7001).HasFocus | ControlGroup(7000).HasFocus | Window.IsActive(100) | Window.IsActive(103) | Window.IsActive(106) | Window.IsActive(111) | Window.IsActive(134)</visible>
 			<animation effect="fade" start="0" end="100" time="200">Visible</animation>
 			<animation effect="fade" start="100" end="0" time="400">Hidden</animation>
 			<control type="image">
@@ -151,7 +151,13 @@
 				<description>Programs</description>
 				<label>0</label>
 				<include>Global_HeadingSectionVars</include>
-				<visible>Window.IsActive(1) + !Window.IsActive(134)</visible>
+				<visible>Window.IsActive(1) + !Window.IsActive(134) + IsEmpty(Container.PluginName)</visible>
+			</control>
+			<control type="label">
+				<description>Scripts</description>
+				<label>247</label>
+				<include>Global_HeadingSectionVars</include>
+				<visible>Window.IsActive(20) + !Window.IsActive(134)</visible>
 			</control>
 			<control type="label">
 				<description>Movies</description>
@@ -223,7 +229,7 @@
 				<description>Video</description>
 				<label>3</label>
 				<include>Global_HeadingSectionVars</include>
-				<visible>[Window.IsActive(24)| [Window.IsActive(25) + !Container.Content(tvshows) + !Container.Content(seasons) + !Container.Content(movies)]] + IsEmpty(Container.PluginName) + !Window.IsActive(134)</visible>
+				<visible>[Window.IsActive(24)| [Window.IsActive(25) + !Container.Content(tvshows) + !Container.Content(seasons) + !Container.Content(episodes) + !Container.Content(movies)]] + IsEmpty(Container.PluginName) + !Window.IsActive(134)</visible>
 			</control>
 			<control type="label">
 				<label>$INFO[Container.NumItems] ITEMS</label>
@@ -309,8 +315,8 @@
 			<scrolltime>0</scrolltime>
 			<orientation>horizontal</orientation>
 			<focusposition>3</focusposition>
-			<ondown>700</ondown>
-			<onup>700</onup>
+			<ondown>Control.SetFocus(700,0)</ondown>
+			<onup>300</onup>
 			<itemlayout width="2" height="2">
 			</itemlayout>
 			<focusedlayout width="2" height="2">
@@ -324,7 +330,7 @@
 			<include>Animation_ZoomOutZoomIn</include>
 			<include>Animation_ZoomedByMenu</include>
 			<control type="group">
-				<description>PROGRAMS</description>
+				<description>PROGRAMS/Extra</description>
 				<posx>0</posx>
 				<posy>0</posy>
 				<width>370</width>
@@ -332,14 +338,15 @@
 				<animation type="conditional" condition="!Container(300).HasFocus(1)">
 					<effect type="zoom" center="auto" tween="cubic" easing="in" time="200" start="100" end="85" />
 				</animation>
+				<animation effect="slide" start="0,0" end="0,-60,0" time="200" easing="outin" tween="Quadratic" condition="Container(300).HasFocus(1)+Control.HasFocus(700)">Conditional</animation>
 				<control type="multiimage">
 					<include>Home_MainMenuIconF</include>
-					<imagepath diffuse="mainmenu/homematte.png" fallback="backdrops/programs.jpg">$INFO[Skin.String(CustomGames)]</imagepath>
+					<imagepath diffuse="mainmenu/homematte.png" fallback="backdrops/programs.jpg">$INFO[Skin.String(CustomPrograms)]</imagepath>
 				</control>
 				<include>Home_MainMenuFrame</include>
 				<control type="label">
 					<include>Home_MainMenuLabel</include>
-					<label>0</label>
+					<label>Extra</label>
 				</control>
 			</control>
 
@@ -372,6 +379,7 @@
 				<animation type="conditional" condition="!Container(300).HasFocus(3)">
 					<effect type="zoom" center="auto" tween="cubic" easing="in" time="200" start="100" end="85" />
 				</animation>
+				<animation effect="slide" start="0,0" end="0,-60,0" time="200" easing="outin" tween="Quadratic" condition="Container(300).HasFocus(3)+Control.HasFocus(700)">Conditional</animation>
 				<control type="multiimage">
 					<include>Home_MainMenuIconF</include>
 					<imagepath diffuse="mainmenu/homematte.png" fallback="backdrops/music.jpg">$INFO[Skin.String(CustomMusic)]</imagepath>
@@ -392,6 +400,7 @@
 				<animation type="conditional" condition="!Container(300).HasFocus(4)">
 					<effect type="zoom" center="auto" tween="cubic" easing="in" time="200" start="100" end="85" />
 				</animation>
+				<animation effect="slide" start="0,0" end="0,-60,0" time="200" easing="outin" tween="Quadratic" condition="Container(300).HasFocus(4)+Control.HasFocus(700)">Conditional</animation>
 				<control type="multiimage">
 					<include>Home_MainMenuIconF</include>
 					<imagepath diffuse="mainmenu/homematte.png" fallback="backdrops/movies.jpg">$INFO[Skin.String(CustomMovies)]</imagepath>
@@ -412,6 +421,7 @@
 				<animation type="conditional" condition="!Container(300).HasFocus(5)">
 					<effect type="zoom" center="auto" tween="cubic" easing="in" time="200" start="100" end="85" />
 				</animation>
+				<animation effect="slide" start="0,0" end="0,-60,0" time="200" easing="outin" tween="Quadratic" condition="Container(300).HasFocus(5)+Control.HasFocus(700)">Conditional</animation>
 				<control type="multiimage">
 					<include>Home_MainMenuIconF</include>
 					<imagepath diffuse="mainmenu/homematte.png" fallback="backdrops/tvshows.jpg">$INFO[Skin.String(CustomTV)]</imagepath>
@@ -478,6 +488,7 @@
 				<animation type="conditional" condition="!Container(300).HasFocus(8)">
 					<effect type="zoom" center="auto" tween="cubic" easing="in" time="200" start="100" end="85" />
 				</animation>
+				<animation effect="slide" start="0,0" end="0,-60,0" time="200" easing="outin" tween="Quadratic" condition="Container(300).HasFocus(8)+Control.HasFocus(700)">Conditional</animation>
 				<control type="multiimage">
 					<include>Home_MainMenuIconF</include>
 					<imagepath diffuse="mainmenu/homematte.png" fallback="backdrops/settings.jpg">$INFO[Skin.String(CustomSettings)]</imagepath>
@@ -487,7 +498,34 @@
 					<include>Home_MainMenuLabel</include>
 					<label>5</label>
 				</control>
+				
 			</control>
+		</control>
+		<include>Home_MenuArrow</include>
+	</include>
+	<include name="Home_MenuArrow">
+		<!--control type="image">
+			<width>219</width>
+			<height>28</height>
+			<posx>530</posx>
+			<posy>180</posy>
+			<texture flipy="true">mainmenu/arrow.png</texture>
+		</control-->
+		<control type="image">
+			<visible>!Control.HasFocus(700)+[Container(300).HasFocus(8)|Container(300).HasFocus(5)|Container(300).HasFocus(4)|Container(300).HasFocus(3)|Container(300).HasFocus(1)]</visible>
+			<width>219</width>
+			<height>28</height>
+			<posx>530</posx>
+			<posy>475</posy>
+			<texture>mainmenu/arrow.png</texture>
+			<animation type="Visible">
+				<effect type="zoom" time="200" center="auto" start="150" end="100" tween="cubic" easing="out" />
+				<effect type="fade" time="200" start="0" end="100" />
+			</animation>
+			<animation type="Hidden">
+				<effect type="zoom" time="200" center="auto" start="100" end="150" tween="cubic" easing="in" />
+				<effect type="fade" time="200" start="100" end="0" />
+			</animation>
 		</control>
 	</include>
 	<include name="Home_MenuIcon">
@@ -722,17 +760,8 @@
 				<description>PROGRAMS</description>
 				<label>0</label>
 				<icon>special://skin/media/backdrops/programs.jpg</icon>
-				<thumb>$INFO[Skin.String(CustomPictures)]</thumb>
+				<thumb>$INFO[Skin.String(CustomPrograms)]</thumb>
 				<onclick>XBMC.ActivateWindow(MyPrograms)</onclick>
-				<visible>!Skin.HasSetting(launcherforgames)</visible>
-			</item>
-			<item id="1">
-				<description>PROGRAMS</description>
-				<label>0</label>
-				<icon>special://skin/media/backdrops/programs.jpg</icon>
-				<thumb>$INFO[Skin.String(CustomPictures)]</thumb>
-				<onclick>XBMC.ActivateWindow(1,plugin://programs/Launcher/)</onclick>
-				<visible>Skin.HasSetting(launcherforgames)</visible>
 			</item>
 			<item id="2">
 				<description>Video</description>
@@ -822,6 +851,345 @@
 			<include>Animation_ZoomOutZoomIn</include>
 			<include>Animation_ZoomedByMenu</include>
 		</control>
+	</include>
+	<include name="Home_SubMenuContent">
+		<content>
+		<!-- TV (5) -->
+			<item id="10">
+				<description>files</description>
+				<label>744</label>
+				<onclick>XBMC.ActivateWindow(24)</onclick>
+				<visible>Container(300).HasFocus(5)</visible>
+				<visible>!Skin.HasSetting(sub_tv_file)</visible>
+			</item>
+			<item id="11">
+				<description>By Genre</description>
+				<label>135</label>
+				<onclick>XBMC.ActivateWindow(MyVideoLibrary,tvshowgenres,return)</onclick>
+				<visible>Container(300).HasFocus(5)</visible>
+				<visible>!Skin.HasSetting(sub_tv_genre)</visible>
+			</item>
+			<item id="12">
+				<description>By Year</description>
+				<label>345</label>
+				<onclick>XBMC.ActivateWindow(MyVideoLibrary,tvshowyears,return)</onclick>
+				<visible>Container(300).HasFocus(5)</visible>
+				<visible>!Skin.HasSetting(sub_tv_year)</visible>
+				</item>
+			<item id="13">
+				<description>By Actor</description>
+				<label>344</label>
+				<onclick>XBMC.ActivateWindow(MyVideoLibrary,tvshowactors,return)</onclick>
+				<visible>Container(300).HasFocus(5)</visible>
+				<visible>!Skin.HasSetting(sub_tv_actor)</visible>
+			</item>
+			<item id="14">
+				<description>Recently Added</description>
+<!-- Locol --><label>Recently added</label>
+				<onclick>XBMC.ActivateWindow(MyVideoLibrary,recentlyaddedepisodes,return)</onclick>
+				<visible>Container(300).HasFocus(5)</visible>
+				<visible>!Skin.HasSetting(sub_tv_recent)</visible>
+			</item>
+			<item id="15">
+				<description>Video Plugins</description>
+				<label>1037</label>
+				<onclick>XBMC.ActivateWindow(MyVideoLibrary,plugins,return)</onclick>
+				<visible>Container(300).HasFocus(5)</visible>
+				<visible>!Skin.HasSetting(sub_tv_plugins)</visible>
+			</item>
+		<!-- TV (5) end -->
+		<!-- Movies (4) -->
+			<item id="20">
+				<description>Files</description>
+				<label>744</label>
+				<onclick>XBMC.ActivateWindow(24)</onclick>
+				<visible>Container(300).HasFocus(4)</visible>
+				<visible>!Skin.HasSetting(sub_movies_files)</visible>
+			</item>
+			<item id="21">
+				<description>By Genre</description>
+				<label>135</label>
+				<onclick>XBMC.ActivateWindow(MyVideoLibrary,moviegenres,return)</onclick>
+				<visible>Container(300).HasFocus(4)</visible>
+				<visible>!Skin.HasSetting(sub_movies_genre)</visible>
+			</item>
+			<item id="22">
+				<description>By Year</description>
+				<label>345</label>
+				<onclick>XBMC.ActivateWindow(MyVideoLibrary,movieyears,return)</onclick>
+				<visible>Container(300).HasFocus(4)</visible>
+				<visible>!Skin.HasSetting(sub_movies_year)</visible>
+			</item>
+			<item id="23">
+				<description>By Actor</description>
+				<label>344</label>
+				<onclick>XBMC.ActivateWindow(MyVideoLibrary,movieactors,return)</onclick>
+				<visible>Container(300).HasFocus(4)</visible>
+				<visible>!Skin.HasSetting(sub_movies_actor)</visible>
+			</item>
+			<item id="24">
+				<description>By Director</description>
+				<label>20339</label>
+				<onclick>XBMC.ActivateWindow(MyVideoLibrary,moviedirectors,return)</onclick>
+				<visible>Container(300).HasFocus(4)</visible>
+				<visible>!Skin.HasSetting(sub_movies_director)</visible>
+			</item>
+			<item id="25">
+				<description>By Studio</description>
+				<label>20388</label>
+				<onclick>XBMC.ActivateWindow(MyVideoLibrary,moviestudios,return)</onclick>
+				<visible>Container(300).HasFocus(4)</visible>
+				<visible>!Skin.HasSetting(sub_movies_studio)</visible>
+			</item>
+			<item id="26">
+				<description>Recently Added</description>
+				<label>Recently added</label>
+				<onclick>XBMC.ActivateWindow(MyVideoLibrary,recentlyaddedmovies,return)</onclick>
+				<visible>Container(300).HasFocus(4)</visible>
+				<visible>!Skin.HasSetting(sub_movies_recent)</visible>
+			</item>
+			<item id="27">
+				<description>Video Plugins</description>
+				<label>1037</label>
+				<onclick>XBMC.ActivateWindow(MyVideoLibrary,plugins,return)</onclick>
+				<visible>Container(300).HasFocus(4)</visible>
+				<visible>!Skin.HasSetting(sub_movies_plugins)</visible>
+			</item>
+		<!-- Movies (4) End -->
+		<!-- Music (3)	-->
+			<item id="41">
+				<description>Partymode</description>
+				<label>Party</label>
+				<onclick>PlayerControl(Partymode(music))</onclick>
+				<visible>Container(300).HasFocus(3)</visible>
+				<visible>!Skin.HasSetting(sub_music_Party)</visible>
+			</item>
+			<item id="42">
+				<description>Last.FM</description>
+				<label>15200</label>
+				<onclick>XBMC.ActivateWindow(MusicFiles,Last.FM)</onclick>
+				<visible>Container(300).HasFocus(3)</visible>
+				<visible>Skin.HasSetting(sub_music_fm)</visible>
+			</item>
+			<item id="31">
+				<description>Browse Button</description>
+				<label>744</label>
+				<onclick>XBMC.ActivateWindow(501,return)</onclick>
+				<visible>Container(300).HasFocus(3)</visible>
+				<visible>!Skin.HasSetting(sub_music_files)</visible>
+			</item>
+			<item id="32">
+				<description>Playlists</description>
+				<label>136</label>
+				<onclick>xbmc.activatewindow(musiclibrary,playlists,return)</onclick>
+				<visible>Container(300).HasFocus(3)</visible>
+				<visible>!Skin.HasSetting(sub_music_Playlists)</visible>
+			</item>
+			<item id="33">
+				<description>Music Videos</description>
+				<label>157</label>
+				<onclick>XBMC.ActivateWindow(MyVideoLibrary,musicvideos,return)</onclick>
+				<visible>Container(300).HasFocus(3)</visible>
+				<visible>!Skin.HasSetting(sub_music_Videos)</visible>
+			</item>
+			<item id="34">
+				<description>Genres</description>
+				<label>135</label>
+				<onclick>xbmc.activatewindow(musiclibrary,genres,return)</onclick>
+				<visible>Container(300).HasFocus(3)</visible>
+				<visible>!Skin.HasSetting(sub_music_genres)</visible>
+			</item>
+			<item id="35">
+				<description>Artists</description>
+				<label>133</label>
+				<onclick>xbmc.activatewindow(musiclibrary,artists,return)</onclick>
+				<visible>Container(300).HasFocus(3)</visible>
+				<visible>!Skin.HasSetting(sub_music_artists)</visible>
+			</item>
+			<item id="36">
+				<description>Albums</description>
+				<label>132</label>
+				<onclick>xbmc.activatewindow(musiclibrary,albums,return)</onclick>
+				<visible>Container(300).HasFocus(3)</visible>
+				<visible>!Skin.HasSetting(sub_music_albums)</visible>
+			</item>
+			<item id="37">
+				<description>Compilations</description>
+				<label>521</label>
+				<onclick>xbmc.activatewindow(musiclibrary,compilations,return)</onclick>
+				<visible>Container(300).HasFocus(3)</visible>
+				<visible>!Skin.HasSetting(sub_music_compilations)</visible>
+			</item>
+			<item id="38">
+				<description>Top100</description>
+				<label>271</label>
+				<onclick>xbmc.activatewindow(musiclibrary,top100,return)</onclick>
+				<visible>Container(300).HasFocus(3)</visible>
+				<visible>!Skin.HasSetting(sub_music_top)</visible>
+			</item>
+			<item id="39">
+				<description>Recently Added Albums</description>
+				<label>Recently added</label>
+				<onclick>xbmc.activatewindow(musiclibrary,recentlyaddedalbums,return)</onclick>
+				<visible>Container(300).HasFocus(3)</visible>
+				<visible>!Skin.HasSetting(sub_music_recent)</visible>
+			</item>
+			<item id="40">
+				<description>Music Plugins</description>
+				<label>1038</label>
+				<onclick>XBMC.ActivateWindow(musiclibrary,plugins,return)</onclick>
+				<visible>Container(300).HasFocus(3)</visible>
+				<visible>!Skin.HasSetting(sub_music_Plugins)</visible>
+			</item>
+		<!-- Music (3) end -->
+		<!-- Extra (1) -->
+			<item id="54">
+				<description>Favourites</description>
+				<label>1036</label>
+				<onclick>xbmc.activatewindow(134)</onclick>
+				<visible>Container(300).HasFocus(1)</visible>
+				<visible>!Skin.HasSetting(sub_extra_favourites)</visible>
+			</item>
+			<item id="51">
+				<description>Programs</description>
+				<label>0</label>
+				<onclick>xbmc.activatewindow(Programs)</onclick>
+				<visible>Container(300).HasFocus(1)</visible>
+				<visible>!Skin.HasSetting(sub_extra_Programs)</visible>
+			</item>
+			<item id="52">
+				<description>Scripts</description>
+				<label>247</label>
+				<onclick>xbmc.activatewindow(20)</onclick>
+				<visible>Container(300).HasFocus(1)</visible>
+				<visible>!Skin.HasSetting(sub_extra_scripts)</visible>
+			</item>
+			<item id="53">
+				<description>Settings</description>
+				<label>5</label>
+				<onclick>XBMC.ActivateWindow(4)</onclick>
+				<visible>Container(300).HasFocus(1)</visible>
+				<visible>!Skin.HasSetting(sub_extra_settings)</visible>
+			</item>
+			<item id="55">
+				<description>Shutdown</description>
+				<label>13005</label>
+				<onclick>XBMC.Shutdown()</onclick>
+				<visible>Container(300).HasFocus(1)</visible>
+				<visible>!Skin.HasSetting(sub_extra_shutdown)</visible>
+			</item>
+		<!-- Extra (1) End -->
+		<!-- settings (8)	-->
+			<item id="80">
+				<description>Video</description>
+				<label>3</label>
+				<onclick>ActivateWindow(MyVideosSettings)</onclick>
+				<visible>Container(300).HasFocus(8)</visible>
+			</item>
+			<item id="81">
+				<description>Music</description>
+				<label>2</label>
+				<onclick>ActivateWindow(MyMusicSettings)</onclick>
+				<visible>Container(300).HasFocus(8)</visible>
+			</item>
+			<item id="82">
+				<description>Programs</description>
+				<label>0</label>
+				<onclick>ActivateWindow(MyProgramsSettings)</onclick>
+				<visible>Container(300).HasFocus(8)</visible>
+			</item>
+			<item id="83">
+				<description>Pictures</description>
+				<label>1</label>
+				<onclick>ActivateWindow(MyPicturesSettings)</onclick>
+				<visible>Container(300).HasFocus(8)</visible>
+			</item>
+			<item id="84">
+				<description>Profiles</description>
+				<label>13200</label>
+				<onclick>ActivateWindow(profiles)</onclick>
+				<visible>Container(300).HasFocus(8)</visible>
+			</item>
+			<item id="85">
+				<description>Weather</description>
+				<label>8</label>
+				<onclick>ActivateWindow(MyWeatherSettings)</onclick>
+				<visible>Container(300).HasFocus(8)</visible>
+			</item>
+			<item id="86">
+				<description>Network</description>
+				<label>705</label>
+				<onclick>ActivateWindow(NetworkSettings)</onclick>
+				<visible>Container(300).HasFocus(8)</visible>
+			</item>
+			<item id="87">
+				<description>System</description>
+				<label>13000</label>
+				<onclick>ActivateWindow(SystemSettings)</onclick>
+				<visible>Container(300).HasFocus(8)</visible>
+			</item>
+			<item id="88">
+				<description>Appearance</description>
+				<label>480</label>
+				<onclick>ActivateWindow(AppearanceSettings)</onclick>
+				<visible>Container(300).HasFocus(8)</visible>
+			</item>
+			<item id="89">
+				<description>skin</description>
+				<label>166</label>
+				<onclick>ActivateWindow(50)</onclick>
+				<visible>Container(300).HasFocus(8)</visible>
+			</item>
+		<!-- settings (8) End -->
+		<!-- Shutdown (12) -->
+			<item id="62">
+				<description>Shutdown Timer</description>
+				<label>20144</label>
+				<onclick>AlarmClock($LOCALIZE[20144],XBMC.Shutdown(),)</onclick>
+				<visible>Container(300).HasFocus(12)</visible>
+				<visible>!Skin.HasSetting(sub_Shutdown_Timer)</visible>
+			</item>
+			<item id="62">
+				<description>Restart Button</description>
+				<label>13313</label>
+				<onclick>XBMC.Reset()</onclick>
+				<visible>Container(300).HasFocus(12)</visible>
+				<visible>!Skin.HasSetting(sub_Shutdown_Restart)</visible>
+			</item>
+			<item id="65">
+				<description>Dashboard Button</description>
+				<label>13006</label>
+				<onclick>XBMC.Dashboard()</onclick>
+				<visible>System.Platform.Xbox</visible>
+				<visible>Container(300).HasFocus(12)</visible>
+				<visible>!Skin.HasSetting(sub_Shutdown_Dashboard)</visible>
+			</item>
+			<item id="66">
+				<description>Suspend</description>
+				<label>13011</label>
+				<onclick>XBMC.Suspend()</onclick>
+				<visible>!System.Platform.Xbox</visible>
+				<visible>Container(300).HasFocus(12)</visible>
+				<visible>!Skin.HasSetting(sub_Shutdown_Suspend)</visible>
+			</item>
+			<item id="67">
+				<description>Hibernate</description>
+				<label>13010</label>
+				<onclick>XBMC.Hibernate()</onclick>
+				<visible>!System.Platform.Xbox</visible>
+				<visible>Container(300).HasFocus(12)</visible>
+				<visible>!Skin.HasSetting(sub_Shutdown_Hibernate)</visible>
+			</item>
+			<item id="68">
+				<description>Logout Button</description>
+				<label>20126</label>
+				<onclick>System.LogOff</onclick>
+				<visible>System.HasLoginScreen</visible>
+				<visible>Container(300).HasFocus(12)</visible>
+				<visible>!Skin.HasSetting(sub_Shutdown_Logout)</visible>
+			</item>
+		<!-- Shutdown (12) End -->
+		</content> 
 	</include>
 	<include name="Home_MainMenuIconF">
 		<width>351</width>
@@ -978,7 +1346,7 @@
 	</include>
 	<!-- Window menus -->
 	<include name="WindowMenuVars">
-		<width>1000</width>
+		<width>1100</width>
 		<height>40</height>
 		<posx>140</posx>
 		<onup>50</onup>
@@ -996,6 +1364,22 @@
 		<align>center</align>
 		<font>Font_MenuValue</font>
 		<textcolor>MenuValue</textcolor>
+	</include>
+	<include name="WindowMenuRadioButton">
+		<posx>0</posx>
+		<posy>30</posy>
+		<width>200</width>
+		<height>30</height>
+		<align>center</align>
+		<radioposx>45</radioposx>
+		<radioposy>30</radioposy>
+		<radioheight>7</radioheight>
+		<radiowidth>100</radiowidth>
+		<font>Font_MenuValue</font>
+		<textcolor>MenuValue</textcolor>
+		<textureradioon>common/radioUnderline.png</textureradioon>
+		<textureradiooff>-</textureradiooff>
+		<colordiffuse>FlagDiffuse</colordiffuse>
 	</include>
 	<include name="WindowMenuLabel">
 		<posx>0</posx>

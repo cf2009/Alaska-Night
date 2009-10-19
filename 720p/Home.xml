@@ -15,6 +15,61 @@
 		<include condition="Skin.HasSetting(home2)">Home_MenuIcon</include>
 		<include condition="Skin.HasSetting(home3)">Home_MenuList</include>
 
+		<control type="group">
+			<visible>Container(300).HasFocus(8)|Container(300).HasFocus(5)|Container(300).HasFocus(4)|Container(300).HasFocus(3)|Container(300).HasFocus(1)</visible>
+			<control type="list" id="700">
+				<visible allowhiddenfocus="true">Control.HasFocus(700)</visible>
+				<posx>440</posx>
+				<posy>420</posy>
+				<height>170</height>
+				<width>400</width>
+				<onup>300</onup>
+				<ondown>300</ondown>
+				<onleft>300</onleft>
+				<onright>300</onright>
+				<viewtype>list</viewtype>
+				<scrolltime>300</scrolltime>
+				<orientation>vertical</orientation>
+			<include>Animation_ZoomOutZoomIn</include>
+			<include>Animation_ZoomedByMenu</include>
+				<animation type="Visible">
+					<effect type="zoom" time="200" center="auto" start="90" end="100" tween="cubic" easing="out" />
+					<effect type="fade" time="200" start="0" end="100" />
+				</animation>
+				<animation type="Hidden">
+					<effect type="zoom" time="200" center="auto" start="100" end="90" tween="cubic" easing="in" />
+					<effect type="fade" time="200" start="100" end="0" />
+				</animation>
+				<itemlayout width="400" height="25">
+					<control type="label">
+						<posx>200</posx>
+						<posy>0</posy>
+						<width>400</width>
+						<height>25</height>
+						<aligny>center</aligny>
+						<align>center</align>
+						<font>Font_Date</font>
+						<textcolor>Date</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+				</itemlayout>
+				<focusedlayout width="400" height="25">
+					<control type="label">
+						<posx>200</posx>
+						<posy>0</posy>
+						<width>400</width>
+						<height>25</height>
+						<aligny>center</aligny>
+						<align>center</align>
+						<font>Font_Date</font>
+						<textcolor>Time</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+				</focusedlayout>
+				<include>Home_SubMenuContent</include>
+			</control>
+		</control>
+		
 		<include>Global_ContextFilter</include>
 		<include>Global_Time</include>
 		<include>Global_RSS</include>
