@@ -7,7 +7,6 @@
 	<controls>
 		<!--control type="group">
 			<include>Animation_CommonFade</include>
-			<include>Global_BackgroundFilter</include>
 		</control-->
 		<control type="image">
 			<include>Dimensions_Fullscreen</include>

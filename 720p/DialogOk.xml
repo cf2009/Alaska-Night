@@ -11,8 +11,6 @@
 </coordinates>
   
 <controls>
-    
-<include>Global_BackgroundFilter</include>
 
 		<control type="label">
 			<include>WindowID</include>

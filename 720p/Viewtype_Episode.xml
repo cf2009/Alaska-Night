@@ -17,6 +17,7 @@
 			<onleft>7000</onleft>
 			<onright>7000</onright>
 			<focusposition>2</focusposition>
+			<movement>2</movement>
 			<visible>Container.Content(episodes)</visible>
 			<include>Animation_ZoomInZoomOut</include>
 			<include>Animation_EpisodeFloat</include>
@@ -138,7 +139,7 @@
 			<posx>559</posx>
 			<posy>172</posy>
 			<width>633</width>
-			<height>75</height>
+			<height>84</height>
 			<align>left</align>
 			<info>Container(51).ListItem.Plot</info>
 			<autoscroll time="2000" delay="3000" repeat="5000">Skin.HasSetting(autoscroll)</autoscroll>
@@ -148,6 +149,12 @@
 			<include>Animation_EpisodePlot</include>
 			<include>Animation_EpisodeFloat</include>
 			<include>Animation_HiddenByInfo</include>
+		</control>
+		
+		<control type="group">
+			<visible>Control.IsVisible(51) + Window.IsActive(25)</visible>
+			<include>Animation_ZoomedByMenu</include>
+			<include>PosterMediaFlags</include>
 		</control>
 
 	</include>

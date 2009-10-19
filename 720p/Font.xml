@@ -5,6 +5,20 @@
 	<fontset id="Default" unicode="true">
 
 		<font>
+			<name>Font_Res</name>
+			<filename>alaska_condblack.ttf</filename>
+			<size>26</size>
+			<linespacing>0.6</linespacing>
+		</font>
+
+		<font>
+			<name>Font_Aspect</name>
+			<filename>alaska_condblack.ttf</filename>
+			<size>20</size>
+			<linespacing>0.6</linespacing>
+		</font>
+
+		<font>
 			<name>Font_PosterRating</name>
 			<filename>alaska_condblack.ttf</filename>
 			<size>24</size>
@@ -292,27 +306,27 @@
 		<!--#Pragma Keyboard -->
 		<font>
 			<name>Font_KeyboardKeys</name>
-			<filename>alaska_player.ttf</filename>
+			<filename>alaska_nocaps.ttf</filename>
 			<size>19</size>
 		</font>
 		<font>
 			<name>Font_KeyboardTitle</name>
-			<filename>alaska_title.ttf</filename>
+			<filename>alaska_nocaps.ttf</filename>
 			<size>19</size>
 		</font>
 		<font>
 			<name>Font_KeyboardShapes</name>
-			<filename>alaska_shapes.ttf</filename>
+			<filename>alaska_nocaps.ttf</filename>
 			<size>19</size>
 		</font>
 		<font>
 			<name>Font_ListPlay</name>
-			<filename>alaska_shapes.ttf</filename>
+			<filename>alaska_nocaps.ttf</filename>
 			<size>60</size>
 		</font>
 		<font>
 			<name>Font_KeyboardEdit</name>
-			<filename>alaska_player.ttf</filename>
+			<filename>alaska_nocaps.ttf</filename>
 			<size>21</size>
 		</font>
 

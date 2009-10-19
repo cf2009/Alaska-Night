@@ -27,6 +27,7 @@
 					<height>152</height>
 					<texture>episodematteNF.png</texture>
 					<include>Animation_HiddenByInfo</include>
+					<colordiffuse>WallIconDiffuse</colordiffuse>
 				</control>
 				<control type="image">
 					<posx>1</posx>
@@ -35,7 +36,7 @@
 					<height>152</height>
 					<texture background="true" fallback="special:\\skin\media\backdrops\movies.jpg" diffuse="episodematteNF.png">$INFO[ListItem.Property(Fanart_Image)]</texture>
 					<fadetime>200</fadetime>
-					<colordiffuse>89FFFFFF</colordiffuse>
+					<colordiffuse>WallIconDiffuse</colordiffuse>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<include>Animation_HiddenByInfo</include>
 				</control>
@@ -46,6 +47,7 @@
 					<height>154</height>
 					<texture>episodeframeNF.png</texture>
 					<include>Animation_HiddenByInfo</include>
+					<colordiffuse>WallIconDiffuse</colordiffuse>
 				</control>
 				<control type="image">
 					<posx>1</posx>
@@ -54,7 +56,7 @@
 					<height>152</height>
 					<texture background="true" flipy="true" fallback="special://skin/media/backdrops/movies.jpg" diffuse="episodematteNF_reflect.png">$INFO[ListItem.Property(Fanart_Image)]</texture>
 					<fadetime>200</fadetime>
-					<colordiffuse>89FFFFFF</colordiffuse>
+					<colordiffuse>WallIconDiffuse</colordiffuse>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<include>Animation_HiddenByInfo</include>
 				</control>
@@ -65,7 +67,7 @@
 					<height>20</height>
 					<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem.Overlay)</visible>
 					<info>ListItem.Overlay</info>
-					<colordiffuse>89FFFFFF</colordiffuse>
+					<colordiffuse>WallIconDiffuse</colordiffuse>
 					<include>Animation_HiddenByInfo</include>
 				</control>
 			</itemlayout>
@@ -125,7 +127,7 @@
 				<height>50</height>
 				<aligny>center</aligny>
 				<font>Font_MainMenuLabel</font>
-				<textcolor>PosterTitle</textcolor>
+				<textcolor>FanartTitle</textcolor>
 				<label>[B]$INFO[ListItem.Label][/B]</label>
 				<visible>Container.Content(movies)</visible>
 			</control>
@@ -136,8 +138,8 @@
 				<height>50</height>
 				<aligny>center</aligny>
 				<font>Font_TVShow</font>
-				<textcolor>ListTrackF</textcolor>
-				<label>$INFO[ListItem.Genre]</label>
+				<textcolor>FanartTitle</textcolor>
+				<label>[B]$INFO[ListItem.Genre][/B]</label>
 				<visible>Container.Content(movies)</visible>
 			</control>
 			<control type="textbox">
@@ -147,9 +149,9 @@
 				<height>120</height>
 				<align>left</align>
 				<info>ListItem.Plot</info>
-				<autoscroll time="2000" delay="3000" repeat="5000">Skin.HasSetting(autoscroll)</autoscroll>
+				<autoscroll time="4000" delay="6000" repeat="5000">Skin.HasSetting(autoscroll)</autoscroll>
 				<font>Font_TVShow</font>
-				<textcolor>ListTrackF</textcolor>
+				<textcolor>FanartText</textcolor>
 				<visible>Container.Content(movies)</visible>
 			</control>
 		</control>

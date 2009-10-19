@@ -16,6 +16,7 @@
 		<color name="NowPlayingTrack">66ffffff</color>
 		<color name="MediaMenu">99ffffff</color>
 		<color name="FlagDiffuse">CCcdcdcd</color>
+	<color name="FlagText">aacdcdcd</color>
 	<!-- OSD -->
 		<color name="OSDPlayingArtist">ccffffff</color>
 		<color name="OSDPlayingTrack">ccffffff</color>
@@ -51,6 +52,11 @@
 		<color name="ListTrackF">bbffffff</color>
 		<color name="ListTitleF">FFc7c7c7</color>
 		<color name="FileTitleNF">ab474747</color>
+
+	<!-- Fanart colours -->
+
+	<color name="FanartTitle">FF474747</color>
+	<color name="FanartText">DD202020</color>
 	<!-- filemanager -->
 		<color name="FM_ListTitle">CCababab</color>
 		<color name="FM_Listfocused">ffffffff</color>

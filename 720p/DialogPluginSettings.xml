@@ -12,8 +12,6 @@
 
 	<controls>
 
-		<include>Global_BackgroundFilter</include>
-
 		<control type="label">
 			<include>DialogID</include>
 			<label>DialogPluginSettings.xml</label>

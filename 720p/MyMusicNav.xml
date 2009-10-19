@@ -57,10 +57,10 @@
 					<effect type="fade" start="100" end="50" time="200" />					
 				</animation>			
 			</control>
-			<control type="button" id="7">
-				<include>WindowMenuButton</include>
-				<label>361</label>
-				<animation type="conditional" condition="!ControlGroup(7000).HasFocus(7)">
+			<control type="radiobutton" id="16">
+				<include>WindowMenuRadioButton</include>
+				<label>589</label>
+				<animation type="conditional" condition="!ControlGroup(7000).HasFocus(16)">
 					<effect type="zoom" center="100,0" start="100" end="70" time="200" tween="cubic" easing="in" />
 					<effect type="fade" start="100" end="50" time="200" />					
 				</animation>			
@@ -104,8 +104,8 @@
 			</control>
 			<control type="button" id="43">
 				<include>WindowMenuLabel</include>
-				<label>WATCH</label>
-				<animation type="conditional" condition="!ControlGroup(7000).HasFocus(7)">
+<!-- LOC -->	<label>PLAYBACK</label>
+				<animation type="conditional" condition="!ControlGroup(7000).HasFocus(16)">
 					<effect type="zoom" center="100,30" start="100" end="70" time="200" tween="cubic" easing="in" />
 					<effect type="fade" start="100" end="50" time="200" />					
 				</animation>			

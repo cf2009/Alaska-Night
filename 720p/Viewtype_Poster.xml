@@ -28,6 +28,7 @@
 					<height>241</height>
 					<texture>postermatteNF.png</texture>
 					<include>Animation_HiddenByInfo</include>
+					<colordiffuse>WallIconDiffuse</colordiffuse>
 				</control>
 				<control type="image">
 					<posx>1</posx>
@@ -36,7 +37,7 @@
 					<height>241</height>
 					<texture background="true" diffuse="postermatteNF.png">$INFO[ListItem.Icon]</texture>
 					<fadetime>200</fadetime>
-					<colordiffuse>89FFFFFF</colordiffuse>
+					<colordiffuse>WallIconDiffuse</colordiffuse>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<include>Animation_HiddenByInfo</include>
 				</control>
@@ -47,6 +48,7 @@
 					<height>243</height>
 					<texture>posterframeNF.png</texture>
 					<include>Animation_HiddenByInfo</include>
+					<colordiffuse>WallIconDiffuse</colordiffuse>
 				</control>
 				<control type="image">
 					<posx>1</posx>
@@ -55,7 +57,7 @@
 					<height>241</height>
 					<texture background="true" flipy="true" diffuse="postermatteNF_reflect.png">$INFO[ListItem.Icon]</texture>
 					<fadetime>200</fadetime>
-					<colordiffuse>89FFFFFF</colordiffuse>
+					<colordiffuse>WallIconDiffuse</colordiffuse>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<include>Animation_HiddenByInfo</include>
 				</control>
@@ -66,7 +68,7 @@
 					<height>25</height>
 					<visible>!Skin.HasSetting(nomovieoverlays) + !IsEmpty(ListItem.Overlay)</visible>
 					<info>ListItem.Overlay</info>
-					<colordiffuse>89FFFFFF</colordiffuse>
+					<colordiffuse>WallIconDiffuse</colordiffuse>
 					<include>Animation_HiddenByInfo</include>
 				</control>
 			</itemlayout>
@@ -237,7 +239,6 @@
 					<posy>0</posy>
 					<width>300</width>
 					<height>300</height>
-					<fadetime>200</fadetime>
 					<texture>$INFO[ListItem.Icon]</texture>
 					<aspectratio>scale</aspectratio>
 					<bordertexture border="8">common/thumb_border.png</bordertexture>

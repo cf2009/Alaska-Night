@@ -12,6 +12,7 @@
 			<include>Animation_SlideUpFadeOut</include>
 			<include>Animation_HiddenByInfo</include>
 			<posx>58</posx>
+			<animation effect="slide" start="0,0" end="0,20" condition="Control.IsVisible(51)">Conditional</animation>
 			<animation effect="slide" start="0,0" end="-345,-400" condition="Control.IsVisible(52)">Conditional</animation>
 			<animation effect="slide" start="0,0" end="0,35" condition="Control.IsVisible(55)">Conditional</animation>
 			<animation effect="slide" start="0,0" end="-340,20" condition="Control.IsVisible(56)">Conditional</animation>
@@ -25,7 +26,7 @@
 				</control>
 				<control type="image" id="81">
 					<include>PosterMediaFlagsVars</include>
-					<texture fallback="flags/default.png">$INFO[Listitem.studio,flags/studios/,.png]</texture>
+					<texture fallback="flags/default.png">$INFO[Listitem.studio,extras/studios/,.png]</texture>
 					<visible>Skin.HasSetting(showstudioflags)</visible>
 				</control>
 			</control>
@@ -68,12 +69,55 @@
 				<posx>995</posx>
 				<control type="image">
 					<include>PosterMediaFlagsVars</include>
-					<texture>flags/defaultscreen.png</texture>
-					<visible>!Control.IsVisible(83) + !Skin.HasSetting(nodefaultflags)</visible>
+					<texture>flags/AspectRatio/frame.png</texture>
 				</control>
-				<control type="image" id="83">
-					<include>PosterMediaFlagsVars</include>
-					<texture fallback="flags/defaultscreen.png">$INFO[ListItem.VideoResolution,flags/VideoResolution/,.png]</texture>
+				<control type="label">
+					<label>$INFO[ListItem.VideoResolution]</label>
+					<posx>7</posx>
+					<posy>538</posy>
+					<width>42</width>
+					<height>45</height>
+					<align>center</align>
+					<aligny>center</aligny>
+					<font>Font_Res</font>
+					<textcolor>FlagText</textcolor>
+					<visible>!IsEmpty(ListItem.VideoResolution)</visible>
+				</control>
+				<control type="label">
+					<label>?</label>
+					<posx>8</posx>
+					<posy>538</posy>
+					<width>42</width>
+					<height>45</height>
+					<align>center</align>
+					<aligny>center</aligny>
+					<font>Font_Res</font>
+					<textcolor>FlagText</textcolor>
+					<visible>IsEmpty(ListItem.VideoResolution)</visible>
+				</control>
+				<control type="label">
+					<label>$INFO[ListItem.VideoAspect]</label>
+					<posx>55</posx>
+					<posy>538</posy>
+					<width>28</width>
+					<height>45</height>
+					<align>center</align>
+					<aligny>center</aligny>
+					<font>Font_Aspect</font>
+					<colordiffuse>FlagDiffuse</colordiffuse>
+					<visible>!IsEmpty(ListItem.VideoAspect)</visible>
+				</control>
+				<control type="label">
+					<label>?</label>
+					<posx>55</posx>
+					<posy>538</posy>
+					<width>28</width>
+					<height>45</height>
+					<align>center</align>
+					<aligny>center</aligny>
+					<font>Font_Aspect</font>
+					<colordiffuse>FlagDiffuse</colordiffuse>
+					<visible>IsEmpty(ListItem.VideoAspect)</visible>
 				</control>
 			</control>
 			<control type="group">

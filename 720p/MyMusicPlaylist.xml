@@ -5,7 +5,7 @@
 	<allowoverlay>yes</allowoverlay>
 	<controls>
 		<include>Global_Background</include>
-		<include>Viewtype_Files</include>
+		<include>Viewtype_List</include>
 		<control type="fixedlist" id="50">
 			<visible>false</visible>
 		</control>
